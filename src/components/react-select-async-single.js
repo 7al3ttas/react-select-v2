@@ -11,7 +11,7 @@ class ReactSelectAsyncSingle extends Component {
 
 
 // if you have Initial Option
- UNSAFE_componentWillMount(){
+ componentDidMount(){
   if(this.props.user) {
     this.setState({ value : {
     value: this.props.user.id,

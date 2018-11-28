@@ -15,6 +15,17 @@ class ReactSelectField extends Component {
       value: null,
     }
   }
+
+  // for initialize Options in update case .
+  componentDidMount(){
+    if(this.props.users) {
+      let value = this.props.users.map(user => ({
+      value: user.id,
+      label: user.login
+      }));
+      this.setState({ value : value })
+    }
+  }
     
   getOptions =  async (_params) => {
     let _A7Async =  await axios.get(`https://api.github.com/search/users?`,{params:{q:_params}})
@@ -69,6 +80,21 @@ class ReactSelectField extends Component {
 }
 
 class ReactSelectASyncMultiReduxForm extends Component {
+    /*
+    // new
+        <ReactSelectASyncMultiReduxForm
+            onSubmit={handleValuesChange}
+        />
+    // update
+        <ReactSelectASyncMultiReduxForm
+          initialValues={{
+          users_ids: [1,2,3],
+          }}
+          onSubmit={handleValuesChange}
+          users={this.props.users}
+        />
+     */
+
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -77,6 +103,7 @@ class ReactSelectASyncMultiReduxForm extends Component {
                 name="users_ids"
                 component={ReactSelectField}
                 label="Users"
+                user={this.props.users}
               >
               </Field>
       </form>

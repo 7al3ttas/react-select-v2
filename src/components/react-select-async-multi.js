@@ -11,7 +11,7 @@ class ReactSelectAsyncMulti extends Component {
 }
 
 // for initialize Options in update case .
-UNSAFE_componentWillMount(){
+componentDidMount(){
   if(this.props.users) {
     let value = this.props.users.map(user => ({
     value: user.id,

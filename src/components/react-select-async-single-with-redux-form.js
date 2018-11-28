@@ -15,6 +15,15 @@ class ReactSelectField extends Component {
       value: null,
     }
   }
+
+  // if you have Initial Option
+  componentDidMount(){
+    if(this.props.user) {
+      this.setState({ value : {
+      value: this.props.user.id,
+      label: this.props.user.login}})
+    }
+  }
     
   getOptions =  async (_params) => {
     let _A7Async = await fetch(`https://api.github.com/search/users?q=${_params}`)
@@ -68,14 +77,29 @@ class ReactSelectField extends Component {
 }
 
 class ReactSelectASyncSingleReduxForm extends Component {
+    /*
+    // new .
+        <ReactSelectASyncSingleReduxForm
+            onSubmit={handleValuesChange}
+        />
+    // update ..
+        <ReactSelectASyncSingleReduxForm
+            initialValues={{
+              user_id: 7,
+            }}
+            onSubmit={handleValuesChange}
+        />
+    */
+
   render() {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
               <Field
-                name="users_ids"
+                name="user_id"
                 component={ReactSelectField}
-                label="Users"
+                label="User"
+                user={this.props.user}
               >
               </Field>
       </form>
