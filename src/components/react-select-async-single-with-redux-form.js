@@ -2,12 +2,12 @@
 // this is not complete yet ..
 // just to show you how can handel react-select with redux-form .
 
-
 import React, { Component  } from 'react';
 //import { default as ReactSelect } from 'react-select'; // v2
 import AsyncSelect from 'react-select/lib/Async'; // v2
 import { Field, reduxForm } from 'redux-form';
 
+// can you put this class as sprated component .
 class ReactSelectField extends Component {
   constructor(props) {
     super(props)
@@ -53,7 +53,6 @@ class ReactSelectField extends Component {
     });
   }
   
-
   handleOnChange = (value) => {
     let _value  = value.value;
     this.props.input.onChange(_value)
@@ -77,7 +76,7 @@ class ReactSelectField extends Component {
 }
 
 class ReactSelectASyncSingleReduxForm extends Component {
-    /*
+    /* handel redux-form befor this component .
     // new .
         <ReactSelectASyncSingleReduxForm
             onSubmit={handleValuesChange}
@@ -88,6 +87,7 @@ class ReactSelectASyncSingleReduxForm extends Component {
               user_id: 7,
             }}
             onSubmit={handleValuesChange}
+            user={this.props.user}
         />
     */
 

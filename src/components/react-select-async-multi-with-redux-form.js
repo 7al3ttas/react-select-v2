@@ -8,6 +8,7 @@ import AsyncSelect from 'react-select/lib/Async'; // v2
 import axios from "axios"; // v2
 import { Field, reduxForm } from 'redux-form';
 
+// can you put this class as sprated component .
 class ReactSelectField extends Component {
   constructor(props) {
     super(props)
@@ -53,7 +54,6 @@ class ReactSelectField extends Component {
     });
   }
   
-  
   handleOnChange = (value) => {
     const ids = []
     value.map(v =>
@@ -80,7 +80,7 @@ class ReactSelectField extends Component {
 }
 
 class ReactSelectASyncMultiReduxForm extends Component {
-    /*
+    /* handel redux-form befor this component .
     // new
         <ReactSelectASyncMultiReduxForm
             onSubmit={handleValuesChange}
@@ -103,7 +103,7 @@ class ReactSelectASyncMultiReduxForm extends Component {
                 name="users_ids"
                 component={ReactSelectField}
                 label="Users"
-                user={this.props.users}
+                users={this.props.users}
               >
               </Field>
       </form>

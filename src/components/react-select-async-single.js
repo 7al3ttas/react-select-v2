@@ -9,7 +9,6 @@ class ReactSelectAsyncSingle extends Component {
   }
 }
 
-
 // if you have Initial Option
  componentDidMount(){
   if(this.props.user) {
@@ -46,7 +45,6 @@ loadOptions = (params) => {
     }, 1000);
   });
 }
-
 
 handleOnChange = (value) => {
   this.setState({ value })
