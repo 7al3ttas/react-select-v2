@@ -62,6 +62,7 @@ class ReactSelectField extends Component {
              onInputChange={this.loadOptions}
              loadOptions = {this.loadOptions}
              placeholder={"Select .."}
+             name={this.props.input.name}
           />
     )
   }
